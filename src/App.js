@@ -13,7 +13,7 @@ if (process.env.REACT_APP_ENVIRONMENT === "production") {
 const handleClickMe = async () => {
   const response = await fetch(`${serverUrl}`);
   const data = await response.json();
-  console.log("front end data ", data);
+  console.log("front end data: ", data);
   return data;
 };
 function App () {  
