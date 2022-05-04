@@ -1,5 +1,5 @@
 import NavBar from '../Components/NavBar';
-
+import '../../src/App.css';
 
 function About() {
     return (
