@@ -6,6 +6,8 @@ import About from './Pages/About';
 import SignUp from './Pages/SignUp'
 import CreateUser from './Pages/CreateUser';
 import Submitted from './Pages/Submitted';
+import Login from './Pages/Login';
+import LoginSubmit from './Pages/LoginSubmit';
 
 render(
   <BrowserRouter>
@@ -15,8 +17,12 @@ render(
       <Route path='about' element={<About />} />
 
       <Route path='create' element={<SignUp />}>
-      <Route path='createuser' element={<CreateUser />}/>
-      <Route path='submitted' element={<Submitted />}/>
+        <Route path='createuser' element={<CreateUser />} />
+        <Route path='submitted' element={<Submitted />} />
+      </Route>
+
+      <Route path='login' element={<Login />}>
+        <Route path='loginsubmit' element={<LoginSubmit />} />
       </Route>
       
       </Routes>
