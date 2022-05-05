@@ -1,4 +1,6 @@
 import CreateWorkout from '../Components/CreateWorkout';
+import AllWorkouts from './getAllWorkouts';
+
 function LoginSubmitted() {
     return (
         <main style={{ padding: "1rem 0" }}>
@@ -8,6 +10,8 @@ function LoginSubmitted() {
                 
                 <h4>Create your workout!</h4>
                 <CreateWorkout />
+                <AllWorkouts />
+
             </div>
         </main>
     )

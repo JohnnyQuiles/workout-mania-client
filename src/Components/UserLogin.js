@@ -48,31 +48,31 @@ export class UsersLogin extends Component {
         const loginResponse = await this.login()
         console.log("Login user:", loginResponse);
 
-        return loginResponse.payload; 
+        return loginResponse.payload;
 
     }
     render() {
         return (
-                <AuthConsumer>
-                    {({authToken, setAuthToken }) => (
-                        <div>
-                            <div className='user-login'>
-                                <div className='inputs'>
-                                    <input name='email' placeholder='Enter email' value={this.state.email} onChange={this.handleEmail} />
-                                    <br />
+            <AuthConsumer>
+                {({ authToken, setAuthToken }) => (
+                    <div>
+                        <div className='user-login'>
+                            <div className='inputs'>
+                                <input name='email' placeholder='Enter email' value={this.state.email} onChange={this.handleEmail} />
+                                <br />
 
-                                    <input name='password' placeholder='Enter password' value={this.state.password} onChange={this.handlePassword} />
-                                </div>
-                                <button onClick={ async () =>{
-                                    const newAuthToken = await this.userLogin()
-                                    setAuthToken(newAuthToken)
-                                    console.log(authToken);
-                                }}>Login</button>
+                                <input name='password' placeholder='Enter password' value={this.state.password} onChange={this.handlePassword} />
                             </div>
+                            <button onClick={async () => {
+                                const newAuthToken = await this.userLogin()
+                                setAuthToken(newAuthToken)
+                                console.log(authToken);
+                            }}>Login</button>
                         </div>
+                    </div>
 
-                    )}
-                </AuthConsumer>
+                )}
+            </AuthConsumer>
         )
     }
 }
