@@ -5,7 +5,6 @@ const usersUrl = 'http://localhost:4000/users';
 
 
 export class UsersLogin extends Component {
-
     constructor(props) {
         super(props);
         this.state = {
