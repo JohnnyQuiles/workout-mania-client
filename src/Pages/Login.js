@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate, Outlet } from 'react-router-dom';
-import NavBar from '../Components/NavBar';
 import { AuthConsumer } from '../authContext';
+import '../App.css';
 
 function Login() {
     const usersUrl = 'http://localhost:4000/users';
@@ -28,8 +28,6 @@ function Login() {
         })
         console.log("RESPONSE:", response.status);
         const userResponse = await response.json();
-
-        console.log("USER RESPONSE:", userResponse);
         return userResponse;
     }
 
@@ -44,29 +42,30 @@ function Login() {
         <AuthConsumer>
             {({ authToken, setAuthToken }) => (
                 <div className='user-login'>
-                <NavBar />
-                <h1>Workout-Mania Login Page</h1>
+                    
+                    <h3>Have an existing account?</h3>
 
-                <input type='text' placeholder='Email' onChange={(e) => {
-                    setEmail(e.target.value);
-                }}></input>
-                
-                <br />
-                
-                <input type='text' placeholder='Password' onChange={(e) => {
-                    setPassword(e.target.value);
-                }}></input>
-                
-                <br />
+                    <input type='text' placeholder='Email' onChange={(e) => {
+                        setEmail(e.target.value);
+                    }}></input>
 
-                <button onClick={async () => {
-                    console.log('User login');
-                    const newAuth = await userLogin();
-                    setAuthToken(newAuth);
-                    navigate(`/login/loginsubmit`)
-                }}>login</button>
-                <Outlet />
-            </div>
+                    <br />
+
+                    <input type='text' placeholder='Password' onChange={(e) => {
+                        setPassword(e.target.value);
+                    }}></input>
+
+                    <br />
+
+                    <button onClick={async () => {
+                        alert('Login Successfully')
+                        console.log('User login');
+                        const newAuth = await userLogin(authToken);
+                        setAuthToken(newAuth);
+                        navigate(`/dashboard`);
+                    }}>login</button>
+                    <Outlet />
+                </div>
             )}
         </AuthConsumer>
     )

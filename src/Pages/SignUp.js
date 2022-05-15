@@ -1,8 +1,5 @@
 import { useState } from 'react';
 import { useNavigate, Outlet } from 'react-router-dom';
-import NavBar from '../Components/NavBar';
-
-
 function SignUp() {
     const usersUrl = 'http://localhost:4000/users';
     const [firstName, setFirstName] = useState('');
@@ -44,8 +41,8 @@ function SignUp() {
     }
     return (
         <div className='create-page'>
-            <NavBar />
-            <h1>Workout Mania SignUp Page</h1>
+            
+            <h4>Become a Workout-Mania User</h4>
             
             <input type="text" placeholder="First Name" onChange={(e) => {
                 setFirstName(e.target.value);
@@ -70,9 +67,10 @@ function SignUp() {
             <br />
             
             <button onClick={async () => {
-                console.log('Created User Submitted');
+                alert("User Created Sucessfully")
+                console.log('User Created Succesfully');
                 createUser();
-                navigate(`/create/submitted`);
+                navigate(`/`);
             }}>Submit</button>
             <Outlet />
         </div>

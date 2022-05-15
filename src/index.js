@@ -2,12 +2,10 @@ import React from "react";
 import { render } from 'react-dom';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import App from './App';
-// import Home from './Pages/Home';
 import About from './Pages/About';
 import SignUp from './Pages/SignUp'
-import Submitted from './Pages/Submitted';
 import Login from './Pages/Login';
-import LoginSubmit from './Pages/LoginSubmit';
+import Dashboard from './Pages/Dashboard';
 import AuthProvider from './authContext';
 
 
@@ -16,17 +14,15 @@ render(
     <AuthProvider>
       <Routes>
         <Route path='/' element={<App />} />
-        {/* <Route path='home' element={<Home />} /> */}
         <Route path='about' element={<About />} />
-
-        <Route path='create' element={<SignUp />}>
-          <Route path='submitted' element={<Submitted />} />
-        </Route>
-
+        <Route path='create' element={<SignUp />}/>
         <Route path='login' element={<Login />}>
-          <Route path='loginsubmit' element={<LoginSubmit />} />
+        <Route path='dashboard' element={<Dashboard />}>
+        
         </Route>
-        </Routes>
+        </Route>
+      </Routes>
+
 
     </AuthProvider>
   </BrowserRouter >,

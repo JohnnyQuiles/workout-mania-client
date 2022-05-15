@@ -1,25 +1,21 @@
-import React, { Component } from 'react';
-import  { AuthConsumer } from '../authContext';
+import { useState } from 'react';
+import { AuthConsumer } from '../authContext';
+import '../App.css';
 
-const workoutUrl = 'http://localhost:4000/workouts';
+function CreateWorkout() {
+    const workoutUrl = 'http://localhost:4000/workouts';
 
-export class CreateWorkout extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            workoutName: "",
-            workoutReps: null,
-            workoutSets: null,
-            weight: [],
-
-        };
-    }
-    create = async (authToken) => {
+    const [workoutName, setWorkoutName] = useState("");
+    const [workoutReps, setWorkoutReps] = useState(null);
+    const [workoutSets, setWorkoutSets] = useState(null);
+    const [weight, setWeight] = useState([]);
+    
+    const create = async (authToken) => {
         const response = await fetch(`${workoutUrl}/create-workout`, {
             method: "POST",
             mode: "cors",
             headers: {
-                Authorization: "Bearer " + authToken, 
+                Authorization: "Bearer " + authToken,
                 Accept: "application/json",
                 "Content-Type": "application/json",
                 "acces-control-request-headers": "content-type",
@@ -38,52 +34,48 @@ export class CreateWorkout extends Component {
         console.log('CREATE USER RESPONSE:', userResponse);
         return userResponse;
     }
-    handleWorkoutName = (event) => {
-        this.setState({ workoutName: event.target.value });
-    }
-    handleWorkoutReps = (event) => {
-        this.setState({ workoutReps: event.target.value });
-    }
-    handleWorkoutSets = (event) => {
-        this.setState({ workoutSets: event.target.value });
-    }
-    handleWeight = (event) => {
-        this.setState({ weight: event.target.value });
-    }
-    // handleWorkoutOwner = (event) => {
-    //     this.setState({ workoutOwner: event.target.value });
-    // }
-    createWorkout = async (authToken) => {
-        const workoutResponse = await this.create(authToken);
+
+    const createWorkout = async (authToken) => {
+        const workoutResponse = await create(authToken);
         console.log('CREATED WORKOUT:', workoutResponse);
 
 
     }
+    return (
 
-    render() {
-        return (
+        <AuthConsumer>
+            {({ authToken }) => (
+                <div className='workout-info'>
+                    <h2>Create Workout</h2>
 
-            <AuthConsumer>
-                {({ authToken, setAuthToken }) => (
-                    <div>
-                        <h2>Create Workout</h2>
-                        <div className='workout-info'>
-                            <div className='inputs'>
-                                <input placeholder='Workout Name' value={this.state.workoutName} onChange={this.handleWorkoutName} />
-                                <input placeholder='Workout Reps' value={this.state.workoutReps} onChange={this.handleWorkoutReps} />
-                                <input placeholder='Workout Sets' value={this.state.workoutSets} onChange={this.handleWorkoutSets} />
-                                <input placeholder='Weight' value={this.state.weight} onChange={this.handleWeight} />
-                            </div>
-                            <button onClick={() => {
-                                console.log("create workout", authToken);
-                                this.createWorkout(authToken)
-                            }}>Create Workout</button>
-                        </div>
-                    </div>
-                )}
-            </AuthConsumer>
+                    <input placeholder='Workout Name' value={workoutName} onChange={(e) => {
+                        setWorkoutName(e.target.value);
+                    }}></input>
+                    
+                    <input placeholder='Workout Reps' value={workoutReps} onChange={(e) => {
+                        setWorkoutReps(e.target.value);
+                    }}></input>
 
-        )
-    }
+                    <input placeholder='Workout Sets' value={workoutSets} onChange={(e) => {
+                        setWorkoutSets(e.target.value);
+                    }}></input>
+
+                    <input placeholder='Weight' value={weight} onChange={(e) => {
+                        setWeight(e.target.value);
+                    }}></input>
+                    
+                    <br/>
+
+                    <button onClick={() => {
+                        console.log("create workout", authToken);
+                        createWorkout(authToken)
+                    }}>Create Workout</button>
+                </div>
+
+            )}
+        </AuthConsumer>
+
+    )
+
 }
 export default CreateWorkout; 

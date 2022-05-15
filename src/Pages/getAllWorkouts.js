@@ -1,4 +1,4 @@
-import GetAllWorkouts from '../Components/GetAllWorkouts';
+import GetAllWorkouts from '../Components/GetAllWorkouts'; 
 
 function getAllWorkouts() {
     return (

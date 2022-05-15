@@ -1,16 +1,11 @@
-import React, { Component } from 'react';
+import { useState, Outlet } from 'react';
 import { AuthConsumer } from '../authContext';
 
-const workoutUrl = 'http://localhost:4000/workouts';
+function GetAllWorkouts() {
+    const workoutUrl = 'http://localhost:4000/workouts';
+    const [allWorkouts, setAllWorkouts] = useState([]);
 
-export class GetAllWorkouts extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            allWorkouts: [],
-        };
-    }
-    getWorkout = async (authToken) => {
+    const getWorkout = async (authToken) => {
         const response = await fetch(`${workoutUrl}/get-all-workouts`, {
             method: "GET",
             mode: "cors",
@@ -24,27 +19,30 @@ export class GetAllWorkouts extends Component {
         console.log("CREATE USER RESPONSE:", userResponse);
         return userResponse;
     }
-    getAllWorkouts = async (authToken) => {
-        const workoutsResponse = await this.getWorkout(authToken);
+    const getAllWorkouts = async (authToken) => {
+        const workoutsResponse = await getWorkout(authToken);
         console.log("Get Workout:", workoutsResponse);
     }
-    render() {
-        return (
-            <AuthConsumer>
-                {({ authToken }) => (
-                    <div>
-                        <h3>All Your Workouts</h3>
-                        <div className='workoutsHistory'>
-                            <button onClick={() => {
-                                console.log('get all workouts', authToken)
-                                this.getAllWorkouts(authToken)
-                            }}>Submit</button>
+    return (
+        <AuthConsumer>
+            {({ authToken }) => (
+                <div className='workoutsHistory'>
+                    <h3>All Your Workouts</h3>
+                    <ul>
+                        <li value={allWorkouts} onChange={(e) => {
+                            setAllWorkouts(e.target.value);
+                        }}></li>
+                    </ul>
+                    <button onClick={(e) => {
+                        e.preventDefault();
+                        console.log('get all workouts:', authToken)
+                        getAllWorkouts(authToken)
+                    }}>Submit</button>
+                    <Outlet />
+                </div>
+            )}
+        </AuthConsumer>
+    )
 
-                        </div>
-                    </div>
-                )}
-            </AuthConsumer>
-        )
-    }
 }
 export default GetAllWorkouts;
