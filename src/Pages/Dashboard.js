@@ -1,11 +1,13 @@
 import CreateWorkout from '../Components/CreateWorkout';
-
+import LoginNav from '../Components/LoginNavBar';
 function DashWorkouts() {
     return (
-    <div className="container">
-        <h3>Welcome To Your Dashboard</h3>
+        <div className="container">
+            <LoginNav />
+
+            <h3>Welcome To Your Dashboard</h3>
             <CreateWorkout />
-    </div>
+        </div>
     )
 }
 export default DashWorkouts; 

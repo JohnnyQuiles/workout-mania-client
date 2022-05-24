@@ -22,10 +22,10 @@ function CreateWorkout() {
                 "x-Trigger": "CORS",
             },
             body: JSON.stringify({
-                workoutName: this.state.workoutName,
-                workoutReps: this.state.workoutReps,
-                workoutSets: this.state.workoutSets,
-                weight: this.state.weight,
+                workoutName: workoutName,
+                workoutReps: workoutReps,
+                workoutSets: workoutSets,
+                weight: weight,
             }),
         })
         console.log("RESPONSE:", response.status);

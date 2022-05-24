@@ -1,40 +1,40 @@
 import React, { Component } from "react";
 import { Outlet, Link } from 'react-router-dom';
-import CreateUser from './Pages/SignUp';
+import { FaDumbbell } from 'react-icons/fa';
 import Login from './Pages/Login';
 import './App.css';
 
 export class App extends Component {
   render() {
     return (
-      <div className='App'>
-        <h1>Workout Mania</h1>
-        <br />
-
-        <nav style={{ borderbottom: "solid 1px", paddingBottom: "1rem", }}>
-          <Link to="/">Home</Link> |{" "}
-          <Link to="about">About</Link> |{" "}
-          <Link to="login">Login</Link> 
-        </nav>
-
-        <h3>Welcome to Workout Mania fitness app tracker</h3>
-        
-        <h4>Workout Mania has all you need in a fitness app tracker.
-          You can login, create, and manage your own workouts.
-          With Workout Mania, you can keep track of your workouts,
-          we will help manage with you and also we will help by reminding you
-          to keep going and reach your goals!</h4>
-          <br />
+      <body>
+        <div className='App'>
+          <h1 className='App-header'>Workout Mania<FaDumbbell /></h1>
           <br />
 
-          <CreateUser />
+          <nav style={{ borderbottom: "solid 1px", paddingBottom: "1rem", }}>
+            <Link className='App-Link' to="/">Home</Link> |{" "}
+            <Link className='App-Link' to="about">About</Link> |{" "}
+            <Link className='App-Link' to="create">Sign-up</Link>
+          </nav>
+
+          <h3>Welcome to Workout Mania fitness app tracker</h3>
+
+          <h4>Workout Mania has all you need in a fitness app tracker.
+            You can login, create, and manage your own workouts.
+            With Workout Mania, you can keep track of your workouts,
+            we will help manage with you and also we will help by reminding you
+            to keep going and reach your goals!</h4>
           <br />
           <br />
 
           <Login />
-          
-        <Outlet />
-      </div>
+          <br />
+          <br />
+
+          <Outlet />
+        </div>
+      </body>
     )
   }
 };

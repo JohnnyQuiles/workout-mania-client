@@ -16,11 +16,10 @@ render(
         <Route path='/' element={<App />} />
         <Route path='about' element={<About />} />
         <Route path='create' element={<SignUp />}/>
-        <Route path='login' element={<Login />}>
-        <Route path='dashboard' element={<Dashboard />}>
+
+        <Route path='login' element={<Login />}/>
+        <Route path='dashboard' element={<Dashboard />}/>
         
-        </Route>
-        </Route>
       </Routes>
 
 

@@ -1,7 +1,10 @@
 import { useState } from 'react';
 import { useNavigate, Outlet } from 'react-router-dom';
+import NavBar from '../Components/NavBar';
+
 function SignUp() {
     const usersUrl = 'http://localhost:4000/users';
+
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [username, setUsername] = useState('');
@@ -41,36 +44,45 @@ function SignUp() {
     }
     return (
         <div className='create-page'>
-            
+            <NavBar />
             <h4>Become a Workout-Mania User</h4>
-            
+
             <input type="text" placeholder="First Name" onChange={(e) => {
                 setFirstName(e.target.value);
             }}></input>
-            
+
             <input type="text" placeholder="Last Name" onChange={(e) => {
                 setLastName(e.target.value);
             }}></input>
-            
+
             <input type="text" placeholder="User Name" onChange={(e) => {
                 setUsername(e.target.value);
             }}></input>
-            
+
             <input type="text" placeholder="Email" onChange={(e) => {
                 setEmail(e.target.value);
             }}></input>
-            
+
             <input type="text" placeholder="Password" onChange={(e) => {
                 setPassword(e.target.value);
             }}></input>
-            
+
             <br />
-            
+
             <button onClick={async () => {
+                window.localStorage.setItem("users", JSON.stringify({
+                    firstName,
+                    lastName,
+                    username,
+                    email,
+                    password
+                }));
                 alert("User Created Sucessfully")
-                console.log('User Created Succesfully');
                 createUser();
-                navigate(`/`);
+                setTimeout(() => {
+                    navigate(`/login`);
+                }, 500);
+
             }}>Submit</button>
             <Outlet />
         </div>
