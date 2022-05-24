@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNavigate, Outlet } from 'react-router-dom';
+import { FaDumbbell } from 'react-icons/fa';
 import NavBar from '../Components/NavBar';
 
 function SignUp() {
@@ -43,49 +44,58 @@ function SignUp() {
         console.log("CREATED USER:", createResponse);
     }
     return (
-        <div className='create-page'>
-            <NavBar />
-            <h4>Become a Workout-Mania User</h4>
+        <body className='App'>
+            <div>
+                <h1 className='App-header'>Workout Mania</h1>
+                <br />
 
-            <input type="text" placeholder="First Name" onChange={(e) => {
-                setFirstName(e.target.value);
-            }}></input>
+                <div className='App-logo'><FaDumbbell /></div>
+                <br />
+                <br />
 
-            <input type="text" placeholder="Last Name" onChange={(e) => {
-                setLastName(e.target.value);
-            }}></input>
+                <h4 className='App-Sub'>Become a Workout-Mania User</h4>
+                <div><NavBar /></div>
 
-            <input type="text" placeholder="User Name" onChange={(e) => {
-                setUsername(e.target.value);
-            }}></input>
+                <input className='App-Inputs' type="text" placeholder="First Name" onChange={(e) => {
+                    setFirstName(e.target.value);
+                }}></input>
 
-            <input type="text" placeholder="Email" onChange={(e) => {
-                setEmail(e.target.value);
-            }}></input>
+                <input className='App-Inputs' type="text" placeholder="Last Name" onChange={(e) => {
+                    setLastName(e.target.value);
+                }}></input>
 
-            <input type="text" placeholder="Password" onChange={(e) => {
-                setPassword(e.target.value);
-            }}></input>
+                <input className='App-Inputs' type="text" placeholder="User Name" onChange={(e) => {
+                    setUsername(e.target.value);
+                }}></input>
 
-            <br />
+                <input className='App-Inputs' type="text" placeholder="Email" onChange={(e) => {
+                    setEmail(e.target.value);
+                }}></input>
 
-            <button onClick={async () => {
-                window.localStorage.setItem("users", JSON.stringify({
-                    firstName,
-                    lastName,
-                    username,
-                    email,
-                    password
-                }));
-                alert("User Created Sucessfully")
-                createUser();
-                setTimeout(() => {
-                    navigate(`/login`);
-                }, 500);
+                <input className='App-Inputs' type="text" placeholder="Password" onChange={(e) => {
+                    setPassword(e.target.value);
+                }}></input>
 
-            }}>Submit</button>
-            <Outlet />
-        </div>
+                <br />
+
+                <button className='App-button' onClick={async () => {
+                    window.localStorage.setItem("users", JSON.stringify({
+                        firstName,
+                        lastName,
+                        username,
+                        email,
+                        password
+                    }));
+                    alert("User Created Sucessfully")
+                    createUser();
+                    setTimeout(() => {
+                        navigate(`/login`);
+                    }, 500);
+
+                }}>Submit</button>
+                <Outlet />
+            </div>
+        </body>
     )
 }
 export default SignUp; 

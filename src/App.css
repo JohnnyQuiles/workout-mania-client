@@ -88,7 +88,10 @@
 .App-Inputs {
   border-radius: 5px;
   border-style: hidden;
+}
 
+.App-Inputs:hover {
+  background:#0d1321;
 }
 
 .App-button {
@@ -99,6 +102,8 @@
 
 .App-button:hover {
   font-family: 'Nosifer', cursive;
-  color: #e63946;
+  color: #fca311;
+  background: #0d1321;
+  border-radius: 5px;
 
 }
