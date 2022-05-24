@@ -41,29 +41,35 @@ function Login() {
     return (
         <AuthConsumer>
             {({ authToken, setAuthToken }) => (
-                <div className='user-login'>
-                    
-                    <h3>Have an existing account?</h3>
+                <div className='Login'>
 
-                    <input type='text' placeholder='Email' onChange={(e) => {
+                    <h3>Have an existing account?</h3>
+                    
+                    <input className='App-Inputs'type='text' placeholder='Email' onChange={(e) => {
                         setEmail(e.target.value);
                     }}></input>
 
                     <br />
 
-                    <input type='text' placeholder='Password' onChange={(e) => {
+                    <input className='App-Inputs' type='text' placeholder='Password' onChange={(e) => {
                         setPassword(e.target.value);
                     }}></input>
 
                     <br />
 
-                    <button onClick={async () => {
+                    <input type="checkbox" id="remember" />
+                    <label for="remember">Remember me</label>
+                    
+                    <br />
+
+                    <button className='App-button' onClick={async () => {
                         alert('Login Successfully')
                         console.log('User login');
                         const newAuth = await userLogin(authToken);
                         setAuthToken(newAuth);
                         navigate(`/dashboard`);
                     }}>login</button>
+
                     <Outlet />
                 </div>
             )}
