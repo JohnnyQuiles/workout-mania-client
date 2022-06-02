@@ -63,8 +63,7 @@ function Login() {
                     <br />
 
                     <button className='App-button' onClick={async () => {
-                        alert('Login Successfully')
-                        console.log('User login');
+                        alert('Login Successfully');
                         const newAuth = await userLogin(authToken);
                         setAuthToken(newAuth);
                         navigate(`/dashboard`);

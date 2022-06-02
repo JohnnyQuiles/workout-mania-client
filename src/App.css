@@ -10,6 +10,29 @@
   padding: 0;
 }
 
+body {
+  background: #F7F7FF;
+}
+
+.social-card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  width: auto;
+  height: auto;
+  border-radius: 5px;
+  background: #003049;
+  
+}
+
+.social-container {
+  padding: 10px;
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  grid-gap: 15px;
+  align-items: center;
+  perspective: 500px;
+}
+
 .App-logo {
   display: flex;
   align-items: center;
@@ -74,10 +97,17 @@
   font-family: 'Nosifer', cursive;
   color: #e63946;
 }
-
+.App-sub {
+  font-family: 'Nosifer', cursive;
+  color: #F7F7FF;
+}
 .App-Para {
   font-family: 'Bungee', cursive;
   color: #003049;
+}
+.App-para {
+  font-family: 'Bungee', cursive;
+  color: #F7F7FF;
 }
 
 .Login {
@@ -88,10 +118,7 @@
 .App-Inputs {
   border-radius: 5px;
   border-style: hidden;
-}
-
-.App-Inputs:hover {
-  background:#0d1321;
+  font-family: 'Bungee';
 }
 
 .App-button {

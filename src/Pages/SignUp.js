@@ -54,23 +54,31 @@ function SignUp() {
                 <br />
 
                 <h4 className='App-Sub'>Become a Workout-Mania User</h4>
-                <div><NavBar /></div>
+                <NavBar />
 
                 <input className='App-Inputs' type="text" placeholder="First Name" onChange={(e) => {
                     setFirstName(e.target.value);
                 }}></input>
 
+                <br />
+
                 <input className='App-Inputs' type="text" placeholder="Last Name" onChange={(e) => {
                     setLastName(e.target.value);
                 }}></input>
+
+                <br />
 
                 <input className='App-Inputs' type="text" placeholder="User Name" onChange={(e) => {
                     setUsername(e.target.value);
                 }}></input>
 
+                <br />
+
                 <input className='App-Inputs' type="text" placeholder="Email" onChange={(e) => {
                     setEmail(e.target.value);
                 }}></input>
+
+                <br />
 
                 <input className='App-Inputs' type="text" placeholder="Password" onChange={(e) => {
                     setPassword(e.target.value);
