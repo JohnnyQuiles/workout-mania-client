@@ -1,5 +1,4 @@
 import { FaDumbbell } from 'react-icons/fa';
-import NavBar from '../Components/NavBar';
 import '../App.css';
 
 function About() {
@@ -11,9 +10,6 @@ function About() {
 
                 <div className='App-logo'><FaDumbbell /></div>
                 <br />
-                <br />
-
-                <div><NavBar /></div>
                 <br />
 
                 <h3 className="App-Sub">About Workout Mania</h3>

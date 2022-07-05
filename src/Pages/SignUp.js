@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { useNavigate, Outlet } from 'react-router-dom';
 import { FaDumbbell } from 'react-icons/fa';
-import NavBar from '../Components/NavBar';
+
 
 function SignUp() {
-    const usersUrl = 'http://localhost:4000/users';
+    const usersUrl = 'http://localhost:4017/users';
 
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
@@ -54,7 +54,6 @@ function SignUp() {
                 <br />
 
                 <h4 className='App-Sub'>Become a Workout-Mania User</h4>
-                <NavBar />
 
                 <input className='App-Inputs' type="text" placeholder="First Name" onChange={(e) => {
                     setFirstName(e.target.value);

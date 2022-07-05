@@ -51,9 +51,10 @@ body {
 
 .App-Nav {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: flex-start;
   align-items: center;
   font-family: 'Bungee', cursive;
+  background: "#e63946"
 }
 
 .Home {
