@@ -1,7 +1,8 @@
 import React from 'react';
 import { FaDumbbell } from 'react-icons/fa';
 import Layout from '../Components/Layout';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
+
 import '../App.css';
 
 function About() {

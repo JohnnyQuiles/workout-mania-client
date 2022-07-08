@@ -15,7 +15,7 @@ function NavBar() {
                         <Link className='App-header' style={{ color: 'white', fontSize: '35px', textDecoration: 'none' }} to="/">WM</Link>
                         <Link className='About' to="about">About</Link>
                         <Link className='Create' to="create">Sign-up</Link>
-                        <Link className='Create' to="login"><AccountCircle></AccountCircle></Link>
+                        <Link className='Create' to="login"><AccountCircle sx={{ color: 'white', fontSize: '35px' }}></AccountCircle></Link>
                     </Toolbar>
                 </AppBar>
             </Box>

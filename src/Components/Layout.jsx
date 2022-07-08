@@ -8,8 +8,9 @@ function Layout(props) {
     return (
         <Box maxWidth="100%">
             <NavBar />
-            
-            <div>{children}</div>
+            <div>
+                {children}
+            </div>
         </Box>
     )
 };

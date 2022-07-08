@@ -47,6 +47,21 @@ body {
   align-items: center;
   justify-content: center;
   color: #e63946;
+};
+
+.App-header:hover {
+  color: #fca311;
+}
+
+.AppWM {
+  font-family: 'Nosifer', cursive;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+};
+.App-header:hover {
+  color: #fca311;
 }
 .App-Nav {
   display: flex;
@@ -69,7 +84,7 @@ body {
 
 .About {
   text-decoration: none;
-  color: #003049;
+  color: white;
   transition-duration: 0.2s;
 }
 
@@ -80,8 +95,8 @@ body {
 
 .Create {
   text-decoration: none;
-  color: #003049;
-  transition-duration: 0.2s;
+  color: white;
+  transition-duration: 0.1s;
 }
 
 .Create:hover {
