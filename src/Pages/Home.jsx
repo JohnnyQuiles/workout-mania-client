@@ -1,8 +1,9 @@
 import React from 'react';
 import { FaDumbbell } from 'react-icons/fa';
 import Layout from '../Components/Layout';
-import { Container } from '@mui/material';
+import { Box, Container } from '@mui/material';
 import { useSelector } from 'react-redux';
+import squatrack from '../Images/Squatrack.jpeg';
 
 const Home = () => {
     const user = useSelector((state) => state.user);
@@ -12,13 +13,7 @@ const Home = () => {
         return (
             <Layout>
                 <Container>
-
-                    <h1 className='App-header'>Workout Mania</h1>
-                    <div className='App-logo'><FaDumbbell /></div>
-
-                    <br />
-                    <br />
-
+                    
                     <h3 className='App-Sub'>Welcome to Workout Mania fitness app tracker</h3>
 
                     <h4 className='App-Para'>Workout Mania has all you need in a fitness app tracker.
@@ -30,6 +25,10 @@ const Home = () => {
                     <br />
                     <br />
 
+                </Container>
+                <Container style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}> 
+                <Box style={{ bacgroundImage: `${squatrack}`}}>
+                </Box>
                 </Container>
             </Layout>
         );
@@ -48,14 +47,15 @@ const Home = () => {
 
                     <h3 className='App-Sub'>Welcome to Workout Mania fitness app tracker</h3>
 
-                    <h4 className='App-Para'>Workout Mania has all you need in a fitness app tracker.
+                    <h2 className='App-Para'>Workout Mania has all you need in a fitness app tracker.
                         You can login, create, and manage your own workouts.
                         With Workout Mania, you can keep track of your workouts,
                         we will help manage with you and also we will help by reminding you
-                        to keep going and reach your goals!</h4>
+                        to keep going and reach your goals!</h2>
 
                     <br />
                     <br />
+                    
 
                 </Container>
             </Layout>

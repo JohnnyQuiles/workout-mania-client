@@ -13,12 +13,6 @@ function About() {
             <Layout>
     
                 <div>
-                    <h1 className='App-header'>Workout Mania</h1>
-                    <br />
-    
-                    <div className='App-logo'><FaDumbbell /></div>
-                    <br />
-                    <br />
     
                     <h3 className="App-Sub">About Workout Mania</h3>
                     <p className='App-Para'>Workout-mania is your fitness app tracker on keeping track of your workouts
@@ -37,12 +31,6 @@ function About() {
             <Layout>
     
                 <div>
-                    <h1 className='App-header'>Workout Mania</h1>
-                    <br />
-    
-                    <div className='App-logo'><FaDumbbell /></div>
-                    <br />
-                    <br />
     
                     <h3 className="App-Sub">About Workout Mania</h3>
                     <p className='App-Para'>Workout-mania is your fitness app tracker on keeping track of your workouts

@@ -30,9 +30,9 @@ function NavBar() {
                     <Toolbar className='App-Nav' style={{ background: '#e63946', display: 'flex', justifyContent: 'space-between' }}>
                         <Link className='App-header' style={{ color: 'white', fontSize: '35px', textDecoration: 'none' }} to="/">WM</Link>
                         {/* <Link className='Home' to="/">Home</Link> */}
-                        <Link className='About' to="/about">About</Link>
-                        <Link className='Create' to="/create">Sign-up</Link>
-                        <Link className='Create' to="/logout">Logout</Link>
+                        <Link className='About' to="about">About</Link>
+                        <Link className='Create' to="create">Sign-up</Link>
+                        <Link className='Create' to="/">Logout</Link>
                     </Toolbar>
                 </AppBar>
             </Box>

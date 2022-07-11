@@ -3,8 +3,9 @@ import Layout from '../Components/Layout';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { logIn, logOut } from '../Redux/userSlice';
-import { Box, Button, Container } from '@mui/material';
+import { Box, Button, Card, Container } from '@mui/material';
 import { FaDumbbell } from 'react-icons/fa';
+import Dashboard from './Dashboard';
 
 import '../App.css';
 
@@ -55,18 +56,11 @@ function Login() {
         navigate(`/login`);
     };
 
-     //IF USER IS LOGGED IN DISPLAY 
-     //USERNAME AND LOGOUT BUTTON
+    //IF USER IS LOGGED IN DISPLAY 
+    //USERNAME AND LOGOUT BUTTON
     if (user) {
         return (
             <Layout>
-
-                <h1 className='App-header'>Workout Mania</h1>
-                <br />
-
-                <div className='App-logo'><FaDumbbell /></div>
-                <br />
-                <br />
 
                 <Container style={{
                     display: 'flex',
@@ -78,20 +72,42 @@ function Login() {
                         borderRadius: '8px',
 
                     }}>
-                        <h1 className='App-header'>Hi</h1>
+                        <br />
+                        <br />
 
-                        <h1 className="App-header">{username}</h1>
+                        <Dashboard />
+
+                        <h1 className="App-header" style={{ color: '#fca311' }}>{username}</h1>
 
 
                         <br />
                         <br />
-                        
-                        <Button
-                            style={{ background: '#E647EA' }}
+
+                        <Container style={{
+                            display: 'flex',
+                            justifyContent: 'center',
+                            alignItems: 'center'
+                        }}>
+
+                            <Box width="100%" maxWidth="100%" sx={{
+                                background: 'red',
+                                borderRadius: '8px',
+
+                            }}>
+
+                                <Card width="50%" maxWidth="100%" style={{ background: 'white' }}>
+                                    <h1>Create workout</h1>
+
+                                </Card>
+                            </Box>
+                            </Container>
+
+                        {/* <Button
+                            style={{ background: '#fca311' }}
                             onClick={() => {
                                 userLogout();
                                 
-                            }}>Logout</Button>
+                            }}>Logout</Button> */}
                     </Box>
                 </Container>
             </Layout>
@@ -102,12 +118,6 @@ function Login() {
     if (!user) {
         return (
             <Layout>
-                <h1 className='App-header'>Workout Mania</h1>
-                <br />
-
-                <div className='App-logo'><FaDumbbell /></div>
-                <br />
-                <br />
 
                 <Container style={{
                     display: 'flex',
@@ -154,9 +164,9 @@ function Login() {
                                             username,
                                             password
                                         }));
-                                        
+
                                         await userLogin();
-                                        // navigate(`/dashboard`);
+                                        navigate(`/login/dashboard`);
                                     }}>login</button>
 
                                 </Box>

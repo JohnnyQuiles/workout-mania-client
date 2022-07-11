@@ -4,7 +4,7 @@ import Home from './Pages/Home';
 import About from './Pages/About';
 import SignUp from './Pages/SignUp'
 import Login from './Pages/Login';
-// import Dashboard from './Pages/Dashboard';
+import Dashboard from './Pages/Dashboard';
 // import AuthProvider from './authContext';
 import { Provider as ReduxProvider } from 'react-redux';
 import store from './Redux/store';
@@ -20,8 +20,9 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='about' element={<About />} />
           <Route path='create' element={<SignUp />} />
-          <Route path='login' element={<Login />} />
-          {/* <Route path='dashboard' element={<Dashboard />} /> */}
+          <Route path='login' element={<Login />}>
+          <Route path='dashboard' element={<Dashboard />} />
+          </Route>
         </Routes>
       </BrowserRouter >
     </ReduxProvider>
