@@ -3,8 +3,7 @@ import Layout from '../Components/Layout';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { logIn, logOut } from '../Redux/userSlice';
-import { Box, Button, Card, Container } from '@mui/material';
-import { FaDumbbell } from 'react-icons/fa';
+import { Box, Button, Card, Container, Input } from '@mui/material';
 import Dashboard from './Dashboard';
 
 import '../App.css';
@@ -83,31 +82,12 @@ function Login() {
                         <br />
                         <br />
 
-                        <Container style={{
-                            display: 'flex',
-                            justifyContent: 'center',
-                            alignItems: 'center'
-                        }}>
-
-                            <Box width="100%" maxWidth="100%" sx={{
-                                background: 'red',
-                                borderRadius: '8px',
-
-                            }}>
-
-                                <Card width="50%" maxWidth="100%" style={{ background: 'white' }}>
-                                    <h1>Create workout</h1>
-
-                                </Card>
-                            </Box>
-                            </Container>
-
-                        {/* <Button
+                        <Button
                             style={{ background: '#fca311' }}
                             onClick={() => {
                                 userLogout();
-                                
-                            }}>Logout</Button> */}
+
+                            }}>Logout</Button>
                     </Box>
                 </Container>
             </Layout>

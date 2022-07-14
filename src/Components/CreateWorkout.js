@@ -1,21 +1,19 @@
-import { useState } from 'react';
-import { AuthConsumer } from '../authContext';
+import React, { useState } from 'react';
 import '../App.css';
 
 function CreateWorkout() {
-    const workoutUrl = 'http://localhost:4000/workouts';
+    const workoutUrl = 'http://localhost:5017/workouts';
 
     const [workoutName, setWorkoutName] = useState("");
     const [workoutReps, setWorkoutReps] = useState(null);
     const [workoutSets, setWorkoutSets] = useState(null);
     const [weight, setWeight] = useState([]);
 
-    const create = async (authToken) => {
+    const create = async () => {
         const response = await fetch(`${workoutUrl}/create-workout`, {
             method: "POST",
             mode: "cors",
             headers: {
-                Authorization: "Bearer " + authToken,
                 Accept: "application/json",
                 "Content-Type": "application/json",
                 "acces-control-request-headers": "content-type",
@@ -33,15 +31,14 @@ function CreateWorkout() {
         return userResponse;
     }
 
-    const createWorkout = async (authToken) => {
-        const workoutResponse = await create(authToken)
+    const createWorkout = async () => {
+        const workoutResponse = await create()
         console.log('CREATED WORKOUT:', workoutResponse);
 
 
     }
     return (
-        <AuthConsumer>
-            {({ authToken }) => (
+        
                 <div className='workout-info'>
                     <h2 className='App-Para'>Create Workout</h2>
 
@@ -70,7 +67,7 @@ function CreateWorkout() {
                     <br />
 
                     <button className='App-button' onClick={() => {
-                        createWorkout(authToken)
+                        createWorkout()
                     }}>Create Workout</button>
 
                     <br />
@@ -105,9 +102,6 @@ function CreateWorkout() {
                         </div>
                     </div>
                 </div>
-
-            )}
-        </AuthConsumer>
 
     )
 
