@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
+import { Box, Button, Card, Container, Input } from '@mui/material';
+import { create }from '../Redux/workoutSlice';
 import '../App.css';
+import { useDispatch } from 'react-redux';
 
 function CreateWorkout() {
     const workoutUrl = 'http://localhost:5017/workouts';
@@ -9,6 +12,9 @@ function CreateWorkout() {
     const [workoutSets, setWorkoutSets] = useState(null);
     const [weight, setWeight] = useState([]);
 
+    const dispatch = useDispatch();
+
+    // API =======================================================
     const create = async () => {
         const response = await fetch(`${workoutUrl}/create-workout`, {
             method: "POST",
@@ -35,32 +41,36 @@ function CreateWorkout() {
         const workoutResponse = await create()
         console.log('CREATED WORKOUT:', workoutResponse);
 
+        dispatch(create({ workout: workoutResponse }));
+        return workoutResponse.payload; 
 
     }
     return (
         
-                <div className='workout-info'>
+                <Container>
+                    <Box>
+                    <Card style={{ background: 'white', width: '50%'}}>
                     <h2 className='App-Para'>Create Workout</h2>
 
-                    <input className='App-Inputs' placeholder='Workout Name' value={workoutName} onChange={(e) => {
+                    <input placeholder='Workout Name' value={workoutName} onChange={(e) => {
                         setWorkoutName(e.target.value);
                     }}></input>
 
                     <br />
 
-                    <input className='App-Inputs' placeholder='Workout Reps' value={workoutReps} onChange={(e) => {
+                    <input placeholder='Workout Reps' value={workoutReps} onChange={(e) => {
                         setWorkoutReps(e.target.value);
                     }}></input>
 
                     <br />
 
-                    <input className='App-Inputs' placeholder='Workout Sets' value={workoutSets} onChange={(e) => {
+                    <input placeholder='Workout Sets' value={workoutSets} onChange={(e) => {
                         setWorkoutSets(e.target.value);
                     }}></input>
 
                     <br />
 
-                    <input className='App-Inputs' placeholder='Weight' value={weight} onChange={(e) => {
+                    <input placeholder='Weight' value={weight} onChange={(e) => {
                         setWeight(e.target.value);
                     }}></input>
 
@@ -72,7 +82,7 @@ function CreateWorkout() {
 
                     <br />
                     <br />
-                    <div className='social-container'>
+                    {/* <div className='social-container'>
                         <div class="social-card">
                             <h1 className='App-sub'>Workouts</h1>
 
@@ -100,8 +110,10 @@ function CreateWorkout() {
                             </h4>
 
                         </div>
-                    </div>
-                </div>
+                    </div> */}
+                    </Card>
+                    </Box>
+                </Container>
 
     )
 
