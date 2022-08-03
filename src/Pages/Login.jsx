@@ -74,9 +74,9 @@ function Login() {
                         <br />
                         <br />
 
-                        <Dashboard />
 
-                        <h1 className="App-header" style={{ color: '#fca311' }}>{username}</h1>
+                        <h1 className="App-Inputs" style={{ color: 'white', textAlign:'center' }}>Hi {username}</h1>
+                        <Dashboard />
 
 
                         <br />

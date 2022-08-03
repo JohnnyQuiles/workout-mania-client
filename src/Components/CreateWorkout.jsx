@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { Box, Button, Card, Container, Input } from '@mui/material';
-import { create }from '../Redux/workoutSlice';
+import { Box, Card , Input } from '@mui/material';
 import '../App.css';
 import { useDispatch } from 'react-redux';
 
@@ -46,33 +45,31 @@ function CreateWorkout() {
 
     }
     return (
-        
-                <Container>
-                    <Box>
-                    <Card style={{ background: 'white', width: '50%'}}>
+                    <Box style={{ background: 'white', width: '50%'}}>
+                    
                     <h2 className='App-Para'>Create Workout</h2>
 
-                    <input placeholder='Workout Name' value={workoutName} onChange={(e) => {
+                    <Input placeholder='Workout Name' value={workoutName} onChange={(e) => {
                         setWorkoutName(e.target.value);
-                    }}></input>
+                    }} />
 
                     <br />
 
-                    <input placeholder='Workout Reps' value={workoutReps} onChange={(e) => {
+                    <Input placeholder='Workout Reps' value={workoutReps} onChange={(e) => {
                         setWorkoutReps(e.target.value);
-                    }}></input>
+                    }} />
 
                     <br />
 
-                    <input placeholder='Workout Sets' value={workoutSets} onChange={(e) => {
+                    <Input placeholder='Workout Sets' value={workoutSets} onChange={(e) => {
                         setWorkoutSets(e.target.value);
-                    }}></input>
+                    }} />
 
                     <br />
-
-                    <input placeholder='Weight' value={weight} onChange={(e) => {
+                    
+                    <Input placeholder='Weight' value={weight} onChange={(e) => {
                         setWeight(e.target.value);
-                    }}></input>
+                    }} />
 
                     <br />
 
@@ -82,40 +79,8 @@ function CreateWorkout() {
 
                     <br />
                     <br />
-                    {/* <div className='social-container'>
-                        <div class="social-card">
-                            <h1 className='App-sub'>Workouts</h1>
 
-                            <h4 className='App-para'><b>
-                                <p>Name:
-                                    <br />
-                                    {workoutName}
-                                </p>
-
-                                <p>Reps:
-                                    <br />
-                                    {workoutReps}
-                                </p>
-
-                                <p>Sets:
-                                    <br />
-                                    {workoutSets}
-                                </p>
-
-                                <p>Weight:
-                                    <br />
-                                    {weight}
-                                </p>
-                            </b>
-                            </h4>
-
-                        </div>
-                    </div> */}
-                    </Card>
                     </Box>
-                </Container>
-
     )
-
 }
 export default CreateWorkout; 

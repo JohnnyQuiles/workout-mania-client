@@ -1,9 +1,8 @@
 import React from 'react';
-import { FaDumbbell } from 'react-icons/fa';
 import Layout from '../Components/Layout';
-import { Box, Container } from '@mui/material';
+import { Container } from '@mui/material';
 import { useSelector } from 'react-redux';
-import squatrack from '../Images/Squatrack.jpeg';
+
 
 const Home = () => {
     const user = useSelector((state) => state.user);
@@ -26,10 +25,6 @@ const Home = () => {
                     <br />
 
                 </Container>
-                <Container style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}> 
-                <Box style={{ bacgroundImage: `${squatrack}`}}>
-                </Box>
-                </Container>
             </Layout>
         );
     };
@@ -38,10 +33,7 @@ const Home = () => {
         return (
             <Layout>
                 <Container>
-
-                    <h1 className='App-header'>Workout Mania</h1>
-                    <div className='App-logo'><FaDumbbell /></div>
-
+                    
                     <br />
                     <br />
 
@@ -55,7 +47,6 @@ const Home = () => {
 
                     <br />
                     <br />
-                    
 
                 </Container>
             </Layout>
