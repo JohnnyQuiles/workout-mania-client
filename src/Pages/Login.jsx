@@ -3,11 +3,9 @@ import Layout from '../Components/Layout';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { logIn, logOut } from '../Redux/userSlice';
-import { Box, Button, Card, Container, Input } from '@mui/material';
+import { Box, Button, Container } from '@mui/material';
 import Dashboard from './Dashboard';
-
 import '../App.css';
-
 
 function Login() {
     const usersUrl = 'http://localhost:5017/users';
@@ -74,10 +72,12 @@ function Login() {
                         <br />
                         <br />
 
-
-                        <h1 className="App-Inputs" style={{ color: 'white', textAlign:'center' }}>Hi {username}</h1>
+                        <h1 className="App-Inputs" style={{ color: 'white', textAlign: 'center' }}>Hi {username} (:</h1>
+                        
+                        {/* Dashboard for when users logs in 
+                            sees card to keep track of workouts */}
+                            
                         <Dashboard />
-
 
                         <br />
                         <br />
@@ -86,19 +86,17 @@ function Login() {
                             style={{ background: '#fca311' }}
                             onClick={() => {
                                 userLogout();
-
                             }}>Logout</Button>
                     </Box>
                 </Container>
             </Layout>
         )
-    }
+    };
 
     //IF THERE IS NO USER DISPLAY THIS
     if (!user) {
         return (
             <Layout>
-
                 <Container style={{
                     display: 'flex',
                     justifyContent: 'center',
@@ -107,12 +105,9 @@ function Login() {
                     <Box width="100%" maxWidth="100%" sx={{
                         background: '#003049',
                         borderRadius: '8px',
-
                     }}>
                         <div className='Login'>
-
                             <h3 className='App-Sub'>Have an existing account?</h3>
-
                             <Container style={{
                                 display: 'flex',
                                 justifyContent: 'center',
@@ -124,9 +119,7 @@ function Login() {
                                     display: 'flex',
                                     justifyContent: 'center',
                                     alignItems: 'center'
-
                                 }}>
-
                                     <input className='App-Inputs' type='text' placeholder='Username' value={username} onChange={(e) => {
                                         setUsername(e.target.value);
                                     }} />
@@ -148,7 +141,6 @@ function Login() {
                                         await userLogin();
                                         navigate(`/login/dashboard`);
                                     }}>login</button>
-
                                 </Box>
                             </Container>
                         </div>
@@ -156,9 +148,6 @@ function Login() {
                 </Container>
             </Layout>
         )
-    }
-
-
-
+    };
 }
 export default Login; 

@@ -15,7 +15,9 @@ function Dashboard() {
                 <h3 className="App-Sub">Welcome To Your Dashboard</h3>
                 <h1 className="App-header">{user.username}</h1>
 
+                {/* Creates workout with card to be displayed */}
                 <CreateWorkout />
+                
             </Container>
         )
     }
