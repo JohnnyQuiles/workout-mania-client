@@ -1,13 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react'
 import { useSelector } from 'react-redux';
-import { Container } from '@mui/material';
-
-import CreateWorkout from '../Components/CreateWorkout';
+import { Box, Container } from '@mui/material';
+import AddWorkout from '../Components/AddWorkout';
 import '../App.css';
 
 function Dashboard() {
     const user = useSelector((state) => state.user);
-
     if (user) {
 
         return (
@@ -16,7 +14,8 @@ function Dashboard() {
                 <h1 className="App-header">{user.username}</h1>
 
                 {/* Creates workout with card to be displayed */}
-                <CreateWorkout />
+                
+                <AddWorkout />
                 
             </Container>
         )

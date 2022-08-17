@@ -3,7 +3,6 @@ import Layout from '../Components/Layout';
 import { Container } from '@mui/material';
 import { useSelector } from 'react-redux';
 
-
 const Home = () => {
     const user = useSelector((state) => state.user);
 
