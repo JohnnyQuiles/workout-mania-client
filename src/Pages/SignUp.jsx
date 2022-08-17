@@ -7,7 +7,7 @@ import '../App.css';
 import { useSelector } from 'react-redux';
 
 function SignUp() {
-     const usersUrl = process.env.NODE_ENV +'/users';
+     const usersUrl = process.env.REACT_APP_AXIOS +'/users';
 
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');

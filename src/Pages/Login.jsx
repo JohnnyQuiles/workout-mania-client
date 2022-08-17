@@ -8,7 +8,7 @@ import Dashboard from './Dashboard';
 import '../App.css';
 
 function Login() {
-     const usersUrl = process.env.NODE_ENV +'/users';
+     const usersUrl = process.env.REACT_APP_AXIOS +'/users';
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
