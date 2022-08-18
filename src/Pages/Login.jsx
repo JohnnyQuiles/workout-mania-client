@@ -8,7 +8,7 @@ import Dashboard from './Dashboard';
 import '../App.css';
 
 function Login() {
-     const usersUrl = process.env.REACT_APP_AXIOS +'/users';
+    const usersUrl = process.env.REACT_APP_AXIOS + '/users';
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -73,10 +73,10 @@ function Login() {
                         <br />
 
                         <h1 className="App-Inputs" style={{ color: 'white', textAlign: 'center' }}>Hi {username} (:</h1>
-                        
+
                         {/* Dashboard for when users logs in 
                             sees card to keep track of workouts */}
-                            
+
                         <Dashboard />
 
                         <br />

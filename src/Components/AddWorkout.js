@@ -8,6 +8,7 @@ const AddWorkout = ({ handleWorkoutCard }) => {
     const [workoutSets, setWorkoutSets] = useState("");
     const [workoutReps, setWorkoutReps] = useState("");
     const [workoutWeight, setWorkoutWeight] = useState("");
+    
 
     const handleName = (e) => {
         setWorkoutName(e.target.value);
@@ -27,15 +28,15 @@ const AddWorkout = ({ handleWorkoutCard }) => {
 
     const saveClick = () => {
         handleWorkoutCard(
-            workoutName, 
-            workoutSets, 
-            workoutReps, 
+            workoutName,
+            workoutSets,
+            workoutReps,
             workoutWeight
-            );
-        setWorkoutName('');
-        setWorkoutSets('');
-        setWorkoutReps('');
-        setWorkoutWeight('');
+        );
+        setWorkoutName("");
+        setWorkoutSets("");
+        setWorkoutReps("");
+        setWorkoutWeight("");
     }
 
 
@@ -44,28 +45,33 @@ const AddWorkout = ({ handleWorkoutCard }) => {
             <Box style={{ background: 'white', width: '100%', textAlign: 'center' }} >
 
                 <h2 className='App-Para'>Create Workout</h2>
-                    <br />
+                <br />
 
-                    <input placeholder='Name' value={workoutName} onChange={handleName} className='App-Para' />
+                <input placeholder='Name' value={workoutName} onChange={handleName} className='App-Para' />
 
-                    <br />
+                <br />
 
-                    <input placeholder="Sets" value={workoutSets} onChange={handleSets} className='App-Para' />
+                <input placeholder="Sets" value={workoutSets} onChange={handleSets} className='App-Para' />
 
-                    <br />
+                <br />
 
-                    <input placeholder="Reps" value={workoutReps} onChange={handleReps} className='App-Para' />
+                <input placeholder="Reps" value={workoutReps} onChange={handleReps} className='App-Para' />
 
-                    <br />
+                <br />
 
-                    <input placeholder="Weight" value={workoutWeight} onChange={handleWeight} className='App-Para' />
+                <input placeholder="Weight" value={workoutWeight} onChange={handleWeight} className='App-Para' />
 
-                    <br />
+                <br />
 
-                    <button className='App-button' onClick={saveClick}>
+                <>
+                    <button className='App-button' onClick={() => {
+                        saveClick({handleWorkoutCard});
+                        console.log(saveClick());
+                    }}>
                         Create Workout
                     </button >
 
+                </>
 
                 <br />
                 <br />
